@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:ht="https://trends.google.com/trending/rss" version="2.0">
+  <channel>
+    <title>Daily Search Trends</title>
+    <item>
+      <title>lunar eclipse</title>
+      <ht:approx_traffic>500K+</ht:approx_traffic>
+      <pubDate>Tue, 24 Nov 2026 10:00:00 -0800</pubDate>
+      <ht:news_item>
+        <ht:news_item_title>Lunar eclipse tonight: what time &amp; where to watch</ht:news_item_title>
+        <ht:news_item_url>https://example.com/eclipse</ht:news_item_url>
+        <ht:news_item_picture>https://example.com/e.jpg</ht:news_item_picture>
+        <ht:news_item_source>Example News</ht:news_item_source>
+      </ht:news_item>
+      <ht:news_item>
+        <ht:news_item_title>Blood moon explained</ht:news_item_title>
+        <ht:news_item_url>https://other.example.org/moon</ht:news_item_url>
+        <ht:news_item_source>Other Outlet</ht:news_item_source>
+      </ht:news_item>
+    </item>
+    <item>
+      <title>jets vs bills</title>
+      <ht:approx_traffic>2,000+</ht:approx_traffic>
+      <pubDate>Tue, 24 Nov 2026 09:00:00 -0800</pubDate>
+      <ht:news_item>
+        <ht:news_item_title>Jets beat Bills</ht:news_item_title>
+        <ht:news_item_url>https://sports.example.com/jets</ht:news_item_url>
+        <ht:news_item_source>Sports Daily</ht:news_item_source>
+      </ht:news_item>
+    </item>
+  </channel>
+</rss>
