@@ -10,6 +10,11 @@ export const PUBLIC_COLUMNS = [
   "category", "image_url", "image_credit", "image_credit_url", "published_at", "updated_at",
 ] as const;
 
+/** Public article fields plus the trend it explains (title and search volume). */
+const publicSelect = (sql: ReturnType<typeof db>) =>
+  sql`${sql.unsafe(PUBLIC_COLUMNS.map((c) => `a.${c}`).join(", "))}, t.title as trend, t.approx_traffic
+    from articles a join trends t on t.id = a.trend_id`;
+
 /** Inserts or refreshes a trend; returns its id and whether it still needs work. */
 export async function upsertTrend(t: Trend, geo: string): Promise<{ id: number; state: string }> {
   const [row] = await db()`
@@ -64,15 +69,15 @@ export async function insertArticle(args: {
 export async function listPublished(opts: { limit: number; offset: number; category?: string }) {
   const sql = db();
   return sql`
-    select ${sql(PUBLIC_COLUMNS as unknown as string[])} from articles
-    where status = 'published' ${opts.category ? sql`and category = ${opts.category}` : sql``}
-    order by published_at desc limit ${opts.limit} offset ${opts.offset}`;
+    select ${publicSelect(sql)}
+    where a.status = 'published' ${opts.category ? sql`and a.category = ${opts.category}` : sql``}
+    order by a.published_at desc limit ${opts.limit} offset ${opts.offset}`;
 }
 
 export async function getPublished(slug: string) {
   const sql = db();
   const [row] = await sql`
-    select ${sql(PUBLIC_COLUMNS as unknown as string[])} from articles where slug = ${slug} and status = 'published'`;
+    select ${publicSelect(sql)} where a.slug = ${slug} and a.status = 'published'`;
   return row ?? null;
 }
 

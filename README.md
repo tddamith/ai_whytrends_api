@@ -57,7 +57,7 @@ npm test                    # unit tests; set TEST_DATABASE_URL to also run the 
 | POST | `/admin/articles/:id/reject` | Reject |
 | PATCH | `/admin/articles/:id` | Edit `headline`, `dek`, `whyTrending`, `bodyMarkdown` |
 
-Article JSON: `slug, headline, dek, whyTrending, bodyMarkdown, keyFacts[{fact, source_numbers}],
+Article JSON: `slug, trend, approxTraffic, headline, dek, whyTrending, bodyMarkdown, keyFacts[{fact, source_numbers}],
 sources[{n, outlet, title, url}], tags, category, imageUrl, imageCredit, imageCreditUrl, publishedAt, updatedAt`.
 
 ## Cost
